@@ -1,0 +1,954 @@
+<script>document.documentElement.setAttribute("dir","rtl");document.documentElement.setAttribute("lang","fa");</script>
+<title>مادوریم — طلا و جواهر</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ─────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #FFFFFF;
+  --bg-2:      #F5F5F0;
+  --bg-3:      #EAEEE9;
+  --bg-4:      #D8E3D8;
+  --brand:     #698F69;
+  --brand-lt:  #7AAC7A;
+  --brand-dk:  #3D5C3D;
+  --gold:      #C4A055;
+  --gold-lt:   #D4B870;
+  --gold-pale: rgba(196,160,85,0.12);
+  --ink:       #1A1A18;
+  --ink-2:     #5A5650;
+  --ink-3:     #9A9690;
+  --border:    #DDD6CC;
+  --border-2:  #B0A898;
+  --neg:       #E05050;
+  --charcoal:  #1A1A1A;
+  --charcoal-2:#2C2C2C;
+  --charcoal-3:#3A3A3A;
+  --off-white: #F8F6F0;
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  16px;
+  --r-xl:  24px;
+  --sans:  "Vazirmatn",system-ui,sans-serif;
+  --serif: "Cinzel",Georgia,serif;
+  --shadow: 0 4px 24px rgba(0,0,0,.10);
+  --shadow-gold: 0 4px 24px rgba(196,160,85,.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;line-height:1.7}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:inherit}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.display{font-family:var(--serif);letter-spacing:.1em}
+h1{font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.4}
+h2{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.4}
+h3{font-size:clamp(17px,2.5vw,21px);font-weight:700}
+h4{font-size:17px;font-weight:700}
+p{color:var(--ink-2);line-height:2.0}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.9}
+
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.page{display:none}
+.page.active{display:block}
+section{padding:80px 0}
+
+/* ── GOLD DIVIDER ────────────────────────────────────────────── */
+.gold-divider{display:flex;align-items:center;gap:12px;justify-content:center;margin:16px 0}
+.gold-divider-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.gold-divider-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+
+/* ── HEADER ─────────────────────────────────────────────────── */
+#header{position:fixed;top:0;left:0;right:0;z-index:100;background:#FFFFFF;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.header-logo{display:flex;flex-direction:column;align-items:flex-end;line-height:1;cursor:pointer}
+.header-logo-name{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.18em;color:var(--ink)}
+.header-logo-sub{font-size:9px;letter-spacing:.22em;color:var(--gold);opacity:.85;text-transform:uppercase}
+nav{display:flex;gap:4px}
+nav a{font-size:14px;font-weight:500;padding:6px 14px;border-radius:var(--r-sm);color:var(--ink-2);transition:.2s;cursor:pointer}
+nav a:hover,nav a.active{color:var(--ink);background:var(--bg-3)}
+.header-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);color:var(--ink-2);transition:.2s;cursor:pointer}
+.icon-btn:hover{background:var(--bg-3);color:var(--ink)}
+.btn-register-header{font-size:13px;font-weight:700;padding:7px 18px;background:var(--brand);color:#fff;border-radius:var(--r-sm);transition:.2s;white-space:nowrap}
+.btn-register-header:hover{background:var(--brand-lt)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink-2);border-radius:2px;transition:.3s}
+
+/* ── MOBILE NAV ─────────────────────────────────────────────── */
+#mobile-nav{position:fixed;inset:0;background:#FFFFFF;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transform:translateX(100%);transition:transform .3s}
+#mobile-nav.open{transform:translateX(0)}
+#mobile-nav a{font-size:22px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:.2s}
+#mobile-nav a:hover{color:var(--ink)}
+#mobile-nav-close{position:absolute;top:20px;left:20px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;color:var(--ink-2)}
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;padding:12px 28px;border-radius:var(--r-md);transition:.2s;cursor:pointer;border:none}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-lt)}
+.btn-gold{background:var(--gold);color:#1A1A18}
+.btn-gold:hover{background:var(--gold-lt)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2)}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+.btn-ghost{background:transparent;color:var(--brand);padding:10px 20px;font-size:14px}
+.btn-ghost:hover{background:var(--bg-3)}
+
+/* ── BADGE ───────────────────────────────────────────────────── */
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:9999px}
+.badge-gold{background:var(--gold-pale);color:var(--gold);border:1px solid rgba(196,160,85,.3)}
+.badge-brand{background:rgba(105,143,105,.18);color:var(--brand-lt);border:1px solid rgba(105,143,105,.3)}
+.badge-new{background:rgba(122,172,122,.2);color:#8FBF8F;border:1px solid rgba(122,172,122,.35)}
+.badge-low{background:rgba(224,80,80,.15);color:#FF8080;border:1px solid rgba(224,80,80,.3)}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: HOME                                                     */
+/* ───────────────────────────────────────────────────────────── */
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:64px;background:#FFFFFF}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 65% at 50% 0%,rgba(105,143,105,.18) 0%,rgba(105,143,105,.06) 50%,transparent 75%),radial-gradient(ellipse 50% 40% at 90% 90%,rgba(196,160,85,.10) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 0% 60%,rgba(61,92,61,.07) 0%,transparent 60%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(105,143,105,.06) 48px,rgba(105,143,105,.06) 49px),repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(105,143,105,.06) 48px,rgba(105,143,105,.06) 49px);opacity:.8;pointer-events:none}
+.hero-inner{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;padding:60px 16px}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.hero-brandname{font-family:var(--serif);font-size:clamp(48px,9vw,88px);font-weight:600;letter-spacing:.18em;color:var(--brand-dk);line-height:1}
+.hero-subtitle{font-family:var(--serif);font-size:clamp(14px,2vw,18px);letter-spacing:.15em;color:var(--ink-3)}
+.hero-tagline{font-size:clamp(16px,2.5vw,20px);font-weight:300;color:var(--ink-2);max-width:520px;line-height:1.8}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.hero-stats{display:flex;gap:40px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--gold)}
+.hero-stat-label{font-size:12px;color:var(--ink-3);margin-top:2px}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5}
+.hero-scroll span{font-size:11px;letter-spacing:.15em;color:var(--ink-3)}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(var(--gold),transparent)}
+
+/* ── HERO ENTRY & SCROLL ANIMATIONS ─────────────────────────── */
+@keyframes hFadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hScrollHint{from{opacity:0}to{opacity:.5}}
+.hero-animated .hero-eyebrow{animation:hFadeUp .7s .05s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-brandname{animation:hFadeUp .85s .2s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-inner>.gold-divider{animation:hFadeUp .7s .36s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-subtitle{animation:hFadeUp .7s .46s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-tagline{animation:hFadeUp .7s .56s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-ctas{animation:hFadeUp .7s .70s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-stats{animation:hFadeUp .7s .86s cubic-bezier(.22,1,.36,1) both}
+.hero-animated .hero-scroll{animation:hScrollHint .6s 1.1s both}
+.hero-bg,.hero-grid{will-change:transform;transform-origin:top center}
+.hero-inner{will-change:opacity,transform}
+
+/* SECTION HEADER */
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{margin-top:8px}
+.section-header p{margin-top:12px;max-width:500px;margin-inline:auto;font-size:15px}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.why-card{background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:.25s;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.why-card:hover{border-color:var(--charcoal-3);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.10)}
+.why-icon{width:48px;height:48px;background:rgba(105,143,105,.15);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px}
+.why-card h4{font-size:16px}
+.why-card p{font-size:14px;color:var(--ink-3)}
+
+/* PRODUCT CARD */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.product-card{background:#FFFFFF;border:1px solid #E0DDD8;border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:.25s;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.product-card:hover{border-color:var(--charcoal-3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.product-img{width:100%;aspect-ratio:1;overflow:hidden;background:var(--bg-3);position:relative;display:flex;align-items:center;justify-content:center}
+.product-img svg{width:80px;height:80px;opacity:.6}
+.product-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--bg-3) 0%,var(--bg-4) 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.product-img-placeholder::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(196,160,85,.15) 0%,transparent 70%)}
+.product-img-icon{font-size:48px;position:relative;z-index:1;filter:drop-shadow(0 2px 8px rgba(196,160,85,.3))}
+.product-badge{position:absolute;top:12px;right:12px;z-index:2}
+.product-body{padding:16px}
+.product-name{font-size:15px;font-weight:700;color:var(--ink)}
+.product-meta{display:flex;gap:12px;margin-top:6px;font-size:12px;color:var(--ink-3)}
+.product-meta span{display:flex;align-items:center;gap:4px}
+.product-footer{padding:12px 16px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.product-price-label{font-size:12px;color:var(--ink-3)}
+.product-btn{font-size:12px;font-weight:700;padding:6px 14px;background:var(--charcoal);border:1px solid var(--charcoal-2);border-radius:var(--r-sm);color:#F8F6F0;transition:.2s}
+.product-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.product-card:hover .product-img-placeholder{background:linear-gradient(135deg,#1c2e1c 0%,#2a3e2a 100%)}
+
+/* ── PRODUCT SLIDER ────────────────────────────────────── */
+.slider-outer{position:relative;margin:0 -8px}
+.slider-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:6px 8px 24px;cursor:grab;user-select:none}
+.slider-track:active{cursor:grabbing}
+.slider-track::-webkit-scrollbar{display:none}
+.slider-track .product-card{flex:0 0 clamp(220px,calc(25% - 14px),270px);scroll-snap-align:start;transition:.25s}
+.sl-btn{position:absolute;top:calc(50% - 28px);transform:translateY(-50%);width:40px;height:40px;background:#fff;border:1.5px solid var(--border-2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;box-shadow:0 2px 16px rgba(0,0,0,.12);transition:.2s;color:var(--ink-2);flex-shrink:0}
+.sl-btn:hover{background:var(--charcoal);border-color:var(--charcoal);color:#fff;transform:translateY(-50%) scale(1.08)}
+.sl-btn.sl-prev{right:-4px}
+.sl-btn.sl-next{left:-4px}
+.sl-dots{display:flex;gap:6px;justify-content:center;margin-top:2px}
+.sl-dot{width:7px;height:7px;border-radius:4px;background:var(--border);border:none;padding:0;cursor:pointer;transition:.35s ease}
+.sl-dot.active{width:24px;background:var(--gold)}
+@media(max-width:900px){.slider-track .product-card{flex:0 0 clamp(200px,calc(33% - 12px),250px)}}
+@media(max-width:640px){.slider-track .product-card{flex:0 0 calc(78vw)}.sl-btn{display:none}}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--charcoal) 0%,var(--charcoal-2) 100%);border:1px solid rgba(196,160,85,.2);border-radius:var(--r-xl);padding:60px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(196,160,85,.08) 0%,transparent 65%);pointer-events:none}
+.cta-banner-text h2{color:#F8F6F0}
+.cta-banner-text p{margin-top:10px;max-width:420px;font-size:15px;color:rgba(248,246,240,.6)}
+.cta-banner-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: PRODUCTS                                                 */
+/* ───────────────────────────────────────────────────────────── */
+.products-hero{background:linear-gradient(180deg,var(--charcoal) 0%,var(--charcoal-2) 55%,#FFFFFF 100%);padding:80px 0 40px;margin-top:64px}
+.products-hero h1{text-align:center;color:#F8F6F0}
+.cat-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.cat-tab{font-size:14px;font-weight:700;padding:8px 22px;border-radius:9999px;border:1.5px solid var(--border-2);color:var(--ink-2);transition:.2s;cursor:pointer}
+.cat-tab.active,.cat-tab:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.products-main{padding:48px 0 80px}
+.products-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.products-count{font-size:14px;color:var(--ink-3)}
+.sort-select{font-size:13px;background:var(--bg-2);border:1px solid var(--border-2);color:var(--ink);padding:8px 14px;border-radius:var(--r-sm);outline:none}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: PRODUCT DETAIL                                           */
+/* ───────────────────────────────────────────────────────────── */
+.detail-page{padding-top:88px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-3);cursor:pointer;transition:.2s;margin-bottom:24px}
+.back-btn:hover{color:var(--ink)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.detail-gallery{position:sticky;top:88px}
+.detail-main-img{width:100%;aspect-ratio:1;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.detail-thumbs{display:flex;gap:10px}
+.detail-thumb{width:72px;height:72px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.2s}
+.detail-thumb.active,.detail-thumb:hover{border-color:var(--brand)}
+.detail-info{display:flex;flex-direction:column;gap:20px}
+.detail-badges{display:flex;gap:8px;flex-wrap:wrap}
+.detail-name{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.3}
+.detail-specs{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.spec-row{display:flex;border-bottom:1px solid var(--border);last-child{border:none}}
+.spec-row:last-child{border:none}
+.spec-label{flex:0 0 140px;padding:12px 16px;font-size:13px;font-weight:700;color:var(--ink-3);background:var(--bg-3)}
+.spec-value{flex:1;padding:12px 16px;font-size:14px;color:var(--ink)}
+.detail-price-box{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:20px}
+.detail-price-label{font-size:12px;color:var(--ink-3);margin-bottom:4px}
+.detail-price-val{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--gold)}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap}
+.detail-note{font-size:13px;color:var(--ink-3);line-height:1.7}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: ABOUT                                                    */
+/* ───────────────────────────────────────────────────────────── */
+.about-hero{background:linear-gradient(180deg,var(--charcoal) 0%,var(--charcoal-2) 50%,#FFFFFF 100%);padding:100px 0 80px;margin-top:64px;text-align:center}
+.about-content{max-width:760px;margin:0 auto}
+.about-content p{font-size:16px;margin-top:16px}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:48px}
+.value-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center}
+.value-icon{font-size:32px;margin-bottom:12px}
+.value-card h3{font-size:16px}
+.value-card p{font-size:13px;margin-top:8px;color:var(--ink-3)}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: CONTACT                                                  */
+/* ───────────────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-info h2{margin-bottom:4px}
+.contact-item{display:flex;gap:14px;align-items:flex-start}
+.contact-item-icon{width:40px;height:40px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.contact-item-text h4{font-size:14px;margin-bottom:2px}
+.contact-item-text p{font-size:14px;color:var(--ink-3)}
+
+/* FORM */
+.form-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-xl);padding:32px}
+.form-title{font-size:18px;font-weight:700;margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-label{font-size:13px;font-weight:700;color:var(--ink-2)}
+.form-input,.form-textarea,.form-select{background:var(--bg-3);border:1.5px solid var(--border-2);border-radius:var(--r-md);padding:11px 14px;font-size:14px;color:var(--ink);outline:none;transition:.2s;font-family:var(--sans);width:100%}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--brand)}
+.form-textarea{min-height:110px;resize:vertical}
+.form-submit{width:100%;margin-top:4px}
+
+/* ───────────────────────────────────────────────────────────── */
+/* PAGE: B2B REGISTER                                             */
+/* ───────────────────────────────────────────────────────────── */
+.register-page{padding-top:88px;min-height:100vh;display:flex;align-items:center}
+.register-card{max-width:620px;margin:0 auto;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-xl);padding:40px;width:100%}
+.register-header{text-align:center;margin-bottom:32px}
+.register-header h2{margin-top:8px}
+.register-header p{font-size:14px;margin-top:8px;color:var(--ink-3)}
+.register-note{background:var(--gold-pale);border:1px solid rgba(196,160,85,.25);border-radius:var(--r-md);padding:14px 16px;font-size:13px;color:var(--ink-2);margin-bottom:20px;line-height:1.7}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{background:var(--charcoal);border-top:1px solid rgba(196,160,85,.15);padding:60px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand .footer-logo{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.12em;margin-bottom:10px;color:#F8F6F0}
+.footer-brand p{font-size:14px;color:rgba(248,246,240,.45);line-height:1.8}
+.footer-socials{display:flex;gap:8px;margin-top:16px}
+.social-btn{width:36px;height:36px;background:var(--charcoal-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:16px;transition:.2s;cursor:pointer;color:rgba(248,246,240,.5)}
+.social-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.footer-col h4{font-size:13px;font-weight:700;letter-spacing:.06em;color:rgba(248,246,240,.35);text-transform:uppercase;margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col li a,.footer-col li span{font-size:14px;color:rgba(248,246,240,.5);transition:.2s;cursor:pointer}
+.footer-col li a:hover,.footer-col li span:hover{color:#F8F6F0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:rgba(248,246,240,.3)}
+.footer-gold-line{height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold) 30%,var(--gold) 70%,transparent 100%);margin-bottom:48px;opacity:.5}
+
+/* ── TOAST ───────────────────────────────────────────────────── */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg-3);border:1px solid var(--brand);border-radius:var(--r-md);padding:12px 24px;font-size:14px;font-weight:700;color:var(--brand-lt);opacity:0;transition:.3s;z-index:999;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media(max-width:900px){
+  .detail-grid{grid-template-columns:1fr}
+  .detail-gallery{position:static}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .cta-banner{text-align:center;justify-content:center}
+  .cta-banner-text p{margin:10px auto 0}
+}
+@media(max-width:640px){
+  nav{display:none}
+  .hamburger{display:flex}
+  .btn-register-header{display:none}
+  .hero-stats{gap:24px}
+  section{padding:56px 0}
+  .footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .cta-banner{padding:40px 24px}
+  .register-card{margin:0 8px}
+}
+</style>
+
+<!-- ── HEADER ──────────────────────────────────────────────────── -->
+<header id="header">
+  <div class="container header-inner">
+    <div class="header-logo" onclick="goTo('home')">
+      <div class="header-logo-name">MADORIM</div>
+      <div class="header-logo-sub">Gold &amp; Jewelry</div>
+    </div>
+    <nav>
+      <a onclick="goTo('home')" class="active" data-page="home">خانه</a>
+      <a onclick="goTo('products')" data-page="products">محصولات</a>
+      <a onclick="goTo('about')" data-page="about">درباره ما</a>
+      <a onclick="goTo('contact')" data-page="contact">تماس</a>
+    </nav>
+    <div class="header-actions">
+      <div class="icon-btn" title="جستجو">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <div class="icon-btn" title="حساب کاربری">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <button class="btn-register-header" onclick="goTo('register')">ثبت‌نام عمده‌فروشی</button>
+      <div class="hamburger" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── MOBILE NAV ───────────────────────────────────────────────── -->
+<div id="mobile-nav">
+  <div id="mobile-nav-close" onclick="toggleMobileNav()">✕</div>
+  <a onclick="goTo('home');toggleMobileNav()">خانه</a>
+  <a onclick="goTo('products');toggleMobileNav()">محصولات</a>
+  <a onclick="goTo('about');toggleMobileNav()">درباره ما</a>
+  <a onclick="goTo('contact');toggleMobileNav()">تماس</a>
+  <a onclick="goTo('register');toggleMobileNav()">ثبت‌نام عمده‌فروشی</a>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: HOME                                                    -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero hero-animated">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">جواهری که ماندگار می‌شود</div>
+      <div class="hero-brandname display">MADORIM</div>
+      <div class="gold-divider">
+        <div class="gold-divider-line"></div>
+        <div class="gold-divider-diamond"></div>
+        <div class="gold-divider-line"></div>
+      </div>
+      <div class="hero-subtitle display">Gold &amp; Jewelry</div>
+      <p class="hero-tagline">طراحی‌های جهانی، ساخت ایرانی — گردنبند و دستبند طلا با قیمت عمده</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="goTo('products')">مشاهده محصولات</button>
+        <button class="btn btn-outline" onclick="goTo('register')">سفارش عمده</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num display">+۵۰۰</div><div class="hero-stat-label">طرح فعال</div></div>
+        <div class="hero-stat"><div class="hero-stat-num display">+۲۰۰</div><div class="hero-stat-label">فروشنده همکار</div></div>
+        <div class="hero-stat"><div class="hero-stat-num display">۱۸K</div><div class="hero-stat-label">عیار استاندارد</div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WHY US -->
+  <section style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">چرا مادوریم؟</div>
+        <h2>مزیت‌هایی که ما را متمایز می‌کند</h2>
+        <p>از کارخانه مستقیم به فروشگاه شما — بدون واسطه، با کیفیت تضمین‌شده</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">💎</div>
+          <h4>طراحی به‌روز جهانی</h4>
+          <p>الهام از برترین برندهای اروپایی و آسیایی، تولید با استانداردهای داخلی</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⚙️</div>
+          <h4>کنترل کیفیت دقیق</h4>
+          <p>هر قطعه قبل از ارسال بازرسی می‌شود — عیار ۱۸K تضمین‌شده</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏭</div>
+          <h4>مستقیم از کارخانه</h4>
+          <p>بدون واسطه، قیمت رقابتی برای خرید عمده با کمترین قیمت بازار</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📦</div>
+          <h4>تحویل مطمئن</h4>
+          <p>بسته‌بندی حرفه‌ای، ارسال به سراسر کشور با بیمه کامل محصول</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW PRODUCTS -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">جدیدترین</div>
+        <h2>محصولات جدید</h2>
+      </div>
+      <div class="slider-outer">
+        <div class="slider-track" id="home-products-grid"></div>
+        <button class="sl-btn sl-prev" onclick="sliderNav('home-products-grid',-1)" aria-label="بعدی">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="sl-btn sl-next" onclick="sliderNav('home-products-grid',1)" aria-label="قبلی">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="sl-dots" id="home-products-dots"></div>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <button class="btn btn-outline" onclick="goTo('products')">مشاهده همه محصولات</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="padding:0 0 80px">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-text">
+          <div class="eyebrow">همکاری عمده</div>
+          <h2>برای دریافت کاتالوگ و قیمت‌نامه عمده تماس بگیرید</h2>
+          <p>ثبت‌نام به عنوان فروشنده همکار و دسترسی به قیمت‌های اختصاصی، تخفیف‌های حجمی و آخرین محصولات</p>
+        </div>
+        <div class="cta-banner-actions">
+          <button class="btn btn-gold" onclick="goTo('register')">ثبت‌نام عمده‌فروشی</button>
+          <button class="btn btn-outline" onclick="goTo('contact')">تماس با ما</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER inside home page -->
+  <div id="footer-home"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: PRODUCTS                                               -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-products" class="page">
+  <div class="products-hero">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center">کارخانه مادوریم</p>
+      <h1>محصولات طلا</h1>
+      <div class="cat-tabs">
+        <div class="cat-tab active" data-cat="all" onclick="filterCat(this,'all')">همه محصولات</div>
+        <div class="cat-tab" data-cat="necklace" onclick="filterCat(this,'necklace')">گردنبند طلا</div>
+        <div class="cat-tab" data-cat="bracelet" onclick="filterCat(this,'bracelet')">دستبند طلا</div>
+      </div>
+    </div>
+  </div>
+  <div class="products-main">
+    <div class="container">
+      <div class="products-toolbar">
+        <div class="products-count" id="products-count">نمایش ۸ محصول</div>
+        <select class="sort-select">
+          <option>مرتب‌سازی: جدیدترین</option>
+          <option>مرتب‌سازی: قیمت صعودی</option>
+          <option>مرتب‌سازی: محبوب‌ترین</option>
+        </select>
+      </div>
+      <div class="product-grid" id="products-grid"></div>
+    </div>
+  </div>
+  <div id="footer-products"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: PRODUCT DETAIL                                         -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-detail" class="page">
+  <div class="detail-page container" id="detail-content"></div>
+  <div id="footer-detail"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: ABOUT                                                  -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="container">
+      <div class="eyebrow">داستان ما</div>
+      <h1>درباره مادوریم</h1>
+      <div class="gold-divider" style="margin-top:16px"><div class="gold-divider-line"></div><div class="gold-divider-diamond"></div><div class="gold-divider-line"></div></div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="about-content">
+        <p>مادوریم یک کارخانه تخصصی تولید طلا و جواهر است که با ترکیب هنر طراحی بین‌المللی و دانش فنی ایرانی، محصولاتی منحصربه‌فرد تولید می‌کند. هر قطعه با دقت طراحی می‌شود تا نه تنها از نظر زیبایی بی‌نقص باشد، بلکه کیفیت ساخت آن نیز معیارهای سختگیرانه ما را تأمین کند.</p>
+        <p style="margin-top:16px">ما به عنوان تأمین‌کننده B2B، با صدها طلافروشی و جواهرفروشی در سراسر ایران همکاری داریم. هدف ما ارائه محصولاتی است که بازارپسند، با کیفیت و قیمت‌رقابتی باشند تا شریکان تجاری ما بتوانند رقابت‌پذیری بهتری در بازار داشته باشند.</p>
+        <div class="values-grid">
+          <div class="value-card"><div class="value-icon">🌟</div><h3>کیفیت اول</h3><p>هر قطعه پیش از عرضه، کنترل کیفیت می‌شود</p></div>
+          <div class="value-card"><div class="value-icon">🤝</div><h3>شراکت پایدار</h3><p>روابط بلندمدت با فروشندگان همکار</p></div>
+          <div class="value-card"><div class="value-icon">🎨</div><h3>نوآوری مداوم</h3><p>هر فصل طرح‌های جدید بر اساس ترندهای جهانی</p></div>
+          <div class="value-card"><div class="value-icon">🏆</div><h3>قیمت منصفانه</h3><p>مستقیم از کارخانه، بدون واسطه اضافه</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer-about"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: CONTACT                                                -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div style="padding-top:88px"></div>
+  <section>
+    <div class="container">
+      <div class="section-header" style="margin-bottom:40px">
+        <div class="eyebrow">ارتباط با ما</div>
+        <h1>تماس با مادوریم</h1>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p style="font-size:15px">برای استعلام قیمت، درخواست کاتالوگ یا هرگونه سؤال با ما در تماس باشید. تیم ما در ساعات اداری آماده پاسخگویی است.</p>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text"><h4>آدرس</h4><p>تهران، بازار بزرگ طلا و جواهر، واحد مادوریم</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text"><h4>تلفن</h4><p>۰۲۱-XXXX-XXXX</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">💬</div>
+            <div class="contact-item-text"><h4>واتس‌اپ</h4><p>۰۹۱X-XXX-XXXX — پاسخ سریع</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text"><h4>ایمیل</h4><p>info@madorim.ir</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text"><h4>ساعات کاری</h4><p>شنبه تا چهارشنبه، ۹ صبح تا ۵ بعدازظهر</p></div>
+          </div>
+        </div>
+        <div class="form-card">
+          <div class="form-title">ارسال پیام</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">نام و نام خانوادگی *</label><input class="form-input" type="text" placeholder="نام شما"></div>
+            <div class="form-group"><label class="form-label">نام فروشگاه / شرکت *</label><input class="form-input" type="text" placeholder="نام شرکت"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">شماره تماس *</label><input class="form-input" type="tel" placeholder="۰۹۱۲XXXXXXX" dir="ltr"></div>
+            <div class="form-group"><label class="form-label">موضوع</label>
+              <select class="form-select">
+                <option>استعلام قیمت عمده</option>
+                <option>درخواست کاتالوگ</option>
+                <option>همکاری فروش</option>
+                <option>سایر موضوعات</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">پیام</label><textarea class="form-textarea" placeholder="توضیحات بیشتر..."></textarea></div>
+          <button class="btn btn-primary form-submit" onclick="showToast('پیام شما ارسال شد. به زودی با شما تماس می‌گیریم.')">ارسال پیام</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer-contact"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PAGE: B2B REGISTER                                           -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div id="page-register" class="page">
+  <div style="padding-top:40px"></div>
+  <section>
+    <div class="container">
+      <div class="register-card">
+        <div class="register-header">
+          <div class="eyebrow">همکاری عمده</div>
+          <h2>ثبت‌نام فروشندگان همکار</h2>
+          <p>پس از تأیید درخواست، به قیمت‌نامه اختصاصی و کاتالوگ کامل دسترسی خواهید داشت</p>
+        </div>
+        <div class="register-note">
+          ⚡ این فرم مخصوص خریداران عمده (طلافروشی، جواهرفروشی و فروشندگان B2B) است. حداقل سفارش اول برای فعال‌سازی حساب اعمال می‌شود.
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">نام *</label><input class="form-input" type="text" placeholder="نام"></div>
+          <div class="form-group"><label class="form-label">نام خانوادگی *</label><input class="form-input" type="text" placeholder="نام خانوادگی"></div>
+        </div>
+        <div class="form-group"><label class="form-label">نام فروشگاه / شرکت *</label><input class="form-input" type="text" placeholder="عنوان کسب‌وکار شما"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">شماره تماس *</label><input class="form-input" type="tel" placeholder="۰۹۱۲XXXXXXX" dir="ltr"></div>
+          <div class="form-group"><label class="form-label">شهر / استان *</label><input class="form-input" type="text" placeholder="مثلاً: تهران"></div>
+        </div>
+        <div class="form-group"><label class="form-label">نوع کسب‌وکار</label>
+          <select class="form-select">
+            <option>طلافروشی / جواهرفروشی</option>
+            <option>فروشگاه آنلاین</option>
+            <option>واردکننده / توزیع‌کننده</option>
+            <option>سایر</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">حجم تقریبی خرید ماهانه</label>
+          <select class="form-select">
+            <option>کمتر از ۵۰ گرم</option>
+            <option>۵۰ تا ۲۰۰ گرم</option>
+            <option>۲۰۰ تا ۵۰۰ گرم</option>
+            <option>بیش از ۵۰۰ گرم</option>
+          </select>
+        </div>
+        <button class="btn btn-primary form-submit" onclick="showToast('درخواست شما ثبت شد. ظرف ۲۴ ساعت با شما تماس می‌گیریم.')">ثبت درخواست همکاری</button>
+        <p style="font-size:12px;color:var(--ink-3);text-align:center;margin-top:14px">با ثبت درخواست، موافقت خود را با شرایط همکاری اعلام می‌کنید</p>
+      </div>
+    </div>
+  </section>
+  <div id="footer-register"></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+/* ── DATA ──────────────────────────────────────────────────────── */
+const products = [
+  {id:1,name:'گردنبند پروانه طلا',cat:'necklace',badge:'جدید',badgeType:'badge-new',icon:'📿',karat:'۱۸ عیار',weight:'۲.۸–۳.۲ گرم',code:'MDN-001'},
+  {id:2,name:'گردنبند قلب ظریف',cat:'necklace',badge:'ویژه',badgeType:'badge-gold',icon:'💛',karat:'۱۸ عیار',weight:'۲.۲–۲.۵ گرم',code:'MDN-002'},
+  {id:3,name:'دستبند حلقه‌ای کلاسیک',cat:'bracelet',badge:'پرفروش',badgeType:'badge-brand',icon:'⭕',karat:'۱۸ عیار',weight:'۴.۰–۴.۸ گرم',code:'MDB-001'},
+  {id:4,name:'گردنبند کهکشان',cat:'necklace',badge:'جدید',badgeType:'badge-new',icon:'✨',karat:'۱۸ عیار',weight:'۳.۵–۴.۰ گرم',code:'MDN-003'},
+  {id:5,name:'دستبند بافت مارکیز',cat:'bracelet',badge:'ویژه',badgeType:'badge-gold',icon:'🔗',karat:'۱۸ عیار',weight:'۵.۰–۶.۰ گرم',code:'MDB-002'},
+  {id:6,name:'گردنبند ستاره دریایی',cat:'necklace',badge:'',badgeType:'',icon:'⭐',karat:'۱۸ عیار',weight:'۲.۰–۲.۴ گرم',code:'MDN-004'},
+  {id:7,name:'دستبند زنجیر سیگار',cat:'bracelet',badge:'کم‌موجود',badgeType:'badge-low',icon:'🔶',karat:'۱۸ عیار',weight:'۳.۸–۴.۵ گرم',code:'MDB-003'},
+  {id:8,name:'گردنبند نام‌نویس',cat:'necklace',badge:'سفارشی',badgeType:'badge-brand',icon:'💫',karat:'۱۸ عیار',weight:'۱.۵–۳.۰ گرم',code:'MDN-005'},
+];
+
+function productCardHTML(p){
+  return `<div class="product-card" onclick="goToDetail(${p.id})">
+    <div class="product-img">
+      <div class="product-img-placeholder">
+        <div class="product-img-icon">${p.icon}</div>
+      </div>
+      ${p.badge?`<div class="product-badge"><span class="badge ${p.badgeType}">${p.badge}</span></div>`:''}
+    </div>
+    <div class="product-body">
+      <div class="product-name">${p.name}</div>
+      <div class="product-meta">
+        <span>💛 ${p.karat}</span>
+        <span>⚖️ ${p.weight}</span>
+      </div>
+    </div>
+    <div class="product-footer">
+      <div class="product-price-label">قیمت: با استعلام</div>
+      <button class="product-btn" onclick="event.stopPropagation();showToast('درخواست قیمت ثبت شد')">درخواست قیمت</button>
+    </div>
+  </div>`;
+}
+
+/* ── ROUTING ───────────────────────────────────────────────────── */
+const pages = ['home','products','about','contact','register','detail'];
+let currentPage = 'home';
+
+function goTo(page){
+  pages.forEach(p=>{
+    const el = document.getElementById('page-'+p);
+    if(el) el.classList.remove('active');
+  });
+  const target = document.getElementById('page-'+page);
+  if(target){
+    target.classList.add('active');
+    currentPage = page;
+  }
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page===page);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  renderFooters();
+  if(page==='products') renderProducts('all');
+  if(page==='home'){
+    renderHomeProducts();
+    const heroEl=document.querySelector('#page-home .hero');
+    if(heroEl){
+      const bg=heroEl.querySelector('.hero-bg'),grid=heroEl.querySelector('.hero-grid'),
+            inn=heroEl.querySelector('.hero-inner'),hint=heroEl.querySelector('.hero-scroll');
+      if(bg) bg.style.transform='';
+      if(grid) grid.style.transform='';
+      if(inn){inn.style.opacity='';inn.style.transform='';}
+      if(hint) hint.style.opacity='';
+      heroEl.classList.remove('hero-animated');
+      void heroEl.offsetWidth;
+      heroEl.classList.add('hero-animated');
+    }
+  }
+}
+
+function goToDetail(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('detail-content').innerHTML = `
+    <a class="back-btn" onclick="goTo('products')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l7 7-7 7"/></svg>
+      بازگشت به محصولات
+    </a>
+    <div class="detail-grid">
+      <div class="detail-gallery">
+        <div class="detail-main-img">
+          <div class="product-img-placeholder" style="width:100%;height:100%">
+            <div style="font-size:96px;position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(196,160,85,.3))">${p.icon}</div>
+          </div>
+        </div>
+        <div class="detail-thumbs">
+          ${[p.icon,'🌟','💛','✨'].map((i,idx)=>`<div class="detail-thumb ${idx===0?'active':''}">${i}</div>`).join('')}
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="detail-badges">
+          ${p.badge?`<span class="badge ${p.badgeType}">${p.badge}</span>`:''}
+          <span class="badge badge-brand">تولید داخل</span>
+        </div>
+        <h1 class="detail-name">${p.name}</h1>
+        <p style="font-size:15px">یکی از پرطرفدارترین طرح‌های مادوریم — الهام گرفته از کلکسیون‌های معتبر اروپایی با ساخت دقیق و استاندارد.</p>
+        <div class="detail-specs">
+          <div class="spec-row"><div class="spec-label">کد محصول</div><div class="spec-value" dir="ltr">${p.code}</div></div>
+          <div class="spec-row"><div class="spec-label">عیار</div><div class="spec-value">${p.karat}</div></div>
+          <div class="spec-row"><div class="spec-label">محدوده وزنی</div><div class="spec-value">${p.weight}</div></div>
+          <div class="spec-row"><div class="spec-label">دسته‌بندی</div><div class="spec-value">${p.cat==='necklace'?'گردنبند':'دستبند'}</div></div>
+          <div class="spec-row"><div class="spec-label">حداقل سفارش</div><div class="spec-value">۵ عدد</div></div>
+          <div class="spec-row"><div class="spec-label">زمان تحویل</div><div class="spec-value">۳ تا ۷ روز کاری</div></div>
+        </div>
+        <div class="detail-price-box">
+          <div class="detail-price-label">قیمت عمده (برای فروشندگان همکار)</div>
+          <div class="detail-price-val">استعلام بگیرید</div>
+          <p style="font-size:12px;color:var(--ink-3);margin-top:6px">قیمت بر اساس وزن روز طلا + اجرت ساخت محاسبه می‌شود</p>
+        </div>
+        <div class="detail-actions">
+          <button class="btn btn-primary" onclick="showToast('درخواست استعلام قیمت ثبت شد')">📩 درخواست استعلام قیمت</button>
+          <button class="btn btn-outline" onclick="goTo('register')">ثبت‌نام عمده‌فروشی</button>
+        </div>
+        <p class="detail-note">⚠️ قیمت‌گذاری این محصول بر اساس نرخ روز طلا و وزن واقعی قطعه انجام می‌شود. برای دریافت قیمت دقیق لطفاً با ما تماس بگیرید یا درخواست استعلام ثبت کنید.</p>
+      </div>
+    </div>
+    <section style="padding:60px 0 40px">
+      <div class="section-header"><div class="eyebrow">پیشنهاد</div><h2>محصولات مشابه</h2></div>
+      <div class="product-grid">${products.filter(x=>x.id!==id&&x.cat===p.cat).slice(0,4).map(productCardHTML).join('')}</div>
+    </section>`;
+  goTo('detail');
+}
+
+/* ── RENDER PRODUCTS ───────────────────────────────────────────── */
+function renderProducts(cat){
+  const filtered = cat==='all'?products:products.filter(p=>p.cat===cat);
+  document.getElementById('products-grid').innerHTML = filtered.map(productCardHTML).join('');
+  document.getElementById('products-count').textContent = `نمایش ${filtered.length} محصول`;
+}
+function renderHomeProducts(){
+  const el = document.getElementById('home-products-grid');
+  if(!el) return;
+  el.innerHTML = products.map(productCardHTML).join('');
+  initSlider('home-products-grid','home-products-dots');
+}
+function initSlider(trackId, dotsId){
+  const track = document.getElementById(trackId);
+  const dotsWrap = document.getElementById(dotsId);
+  if(!track) return;
+
+  // Wheel -> horizontal scroll
+  track.addEventListener('wheel', e=>{
+    if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    track.scrollBy({left: -e.deltaY * 1.2, behavior:'smooth'});
+  }, {passive:false});
+
+  // Drag to scroll
+  let isDragging=false, startX=0, startScroll=0, moved=false;
+  track.addEventListener('mousedown', e=>{
+    isDragging=true; moved=false;
+    startX=e.clientX; startScroll=track.scrollLeft;
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!isDragging) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx)>4) moved=true;
+    track.scrollLeft = startScroll - dx;
+  });
+  window.addEventListener('mouseup', ()=>{
+    if(moved){
+      track.querySelectorAll('.product-card').forEach(c=>{
+        c.style.pointerEvents='none';
+        setTimeout(()=>c.style.pointerEvents='',200);
+      });
+    }
+    isDragging=false;
+  });
+
+  // Dots
+  if(dotsWrap){
+    const cards = track.querySelectorAll('.product-card');
+    const n = cards.length;
+    dotsWrap.innerHTML = Array.from({length:n},(_,i)=>
+      `<button class="sl-dot${i===0?' active':''}" onclick="sliderGoTo('${trackId}','${dotsId}',${i})"></button>`
+    ).join('');
+    track.addEventListener('scroll', ()=>{
+      const max = track.scrollWidth - track.clientWidth;
+      const pct = max > 0 ? track.scrollLeft / max : 0;
+      const idx = Math.round(pct * (n-1));
+      dotsWrap.querySelectorAll('.sl-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
+    }, {passive:true});
+  }
+}
+function sliderNav(trackId, dir){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const card = track.querySelector('.product-card');
+  const w = card ? card.offsetWidth + 18 : 250;
+  track.scrollBy({left: dir * w, behavior:'smooth'});
+}
+function sliderGoTo(trackId, dotsId, idx){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const card = track.querySelector('.product-card');
+  const w = card ? card.offsetWidth + 18 : 250;
+  track.scrollTo({left: idx * w, behavior:'smooth'});
+}
+function filterCat(el,cat){
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts(cat);
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+function footerHTML(){
+  return `<footer>
+    <div class="container">
+      <div class="footer-gold-line"></div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo display">MADORIM</div>
+          <p>کارخانه تولید طلا و جواهر — طراحی جهانی، ساخت ایرانی</p>
+          <div class="footer-socials">
+            <div class="social-btn" title="اینستاگرام">📸</div>
+            <div class="social-btn" title="واتس‌اپ">💬</div>
+            <div class="social-btn" title="تلگرام">✈️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>محصولات</h4>
+          <ul>
+            <li><span onclick="goTo('products')">گردنبند طلا</span></li>
+            <li><span onclick="goTo('products')">دستبند طلا</span></li>
+            <li><span onclick="goTo('products')">محصولات جدید</span></li>
+            <li><span onclick="goTo('products')">محصولات ویژه</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>همکاری</h4>
+          <ul>
+            <li><span onclick="goTo('register')">ثبت‌نام فروشنده</span></li>
+            <li><span onclick="goTo('contact')">درخواست کاتالوگ</span></li>
+            <li><span>شرایط همکاری</span></li>
+            <li><span>سیاست بازگشت</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تماس</h4>
+          <ul>
+            <li><span>تهران، بازار بزرگ طلا</span></li>
+            <li><span dir="ltr">۰۲۱-XXXX-XXXX</span></li>
+            <li><span>info@madorim.ir</span></li>
+            <li><span onclick="goTo('contact')">فرم تماس</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© ۱۴۰۳ مادوریم — تمامی حقوق محفوظ است</p>
+        <p>طراحی جهانی، ساخت ایرانی</p>
+      </div>
+    </div>
+  </footer>`;
+}
+function renderFooters(){
+  ['home','products','detail','about','contact','register'].forEach(p=>{
+    const el = document.getElementById('footer-'+p);
+    if(el) el.innerHTML = footerHTML();
+  });
+}
+
+/* ── MOBILE NAV ─────────────────────────────────────────────────── */
+function toggleMobileNav(){
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+/* ── TOAST ───────────────────────────────────────────────────────── */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* ── HERO SCROLL PARALLAX ──────────────────────────────────────── */
+(function(){
+  let raf=null;
+  function tick(){
+    raf=null;
+    if(currentPage!=='home') return;
+    const hero=document.querySelector('#page-home .hero');
+    if(!hero) return;
+    const y=window.scrollY,hh=hero.offsetHeight;
+    const p=Math.min(y/(hh*0.65),1);
+    const bg=hero.querySelector('.hero-bg'),
+          grid=hero.querySelector('.hero-grid'),
+          inn=hero.querySelector('.hero-inner'),
+          hint=hero.querySelector('.hero-scroll');
+    if(bg)  bg.style.transform=`translateY(${y*0.3}px)`;
+    if(grid) grid.style.transform=`translateY(${y*0.15}px)`;
+    if(inn){inn.style.opacity=String(Math.max(0,1-p*1.6));inn.style.transform=`translateY(${-y*0.1}px)`;}
+    if(hint) hint.style.opacity=String(Math.max(0,0.5-p*2));
+  }
+  window.addEventListener('scroll',()=>{if(!raf) raf=requestAnimationFrame(tick);},{passive:true});
+})();
+
+/* ── INIT ────────────────────────────────────────────────────────── */
+renderHomeProducts();
+renderFooters();
+</script>
